@@ -221,7 +221,7 @@ class Station
   end
   
   def each_line
-    @lines.sort {|ll| ll[0].number}.each do |ll|
+    @lines.sort_by {|ll| ll[0].number}.each do |ll|
       yield ll[0], ll[1]
     end
   end
