@@ -63,6 +63,14 @@ class RailNetwork
     @lines = {}
   end
   
+  def to_s
+    "#{name}"
+  end
+  
+  def inspect
+    "#<RailNetwork:#{object_id} #{name.inspect}>"
+  end
+  
   def add_line (*args)
     line = Line.new(self, *args)
     @lines[line.number] = line
@@ -133,6 +141,14 @@ class Line
     @stops = []
   end
   
+  def to_s
+    "#{number} - #{name}"
+  end
+  
+  def inspect
+    "#<Line:#{object_id} #{to_s.inspect}>"
+  end
+  
   def html_id
     "line-#{number}"
   end
@@ -173,6 +189,14 @@ class Station
     @z = z
     @notes = notes
     @lines = []
+  end
+  
+  def to_s
+    @name
+  end
+  
+  def inspect
+    "#<Station:#{object_id} #{name.inspect}>"
   end
   
   def slug
