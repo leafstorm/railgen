@@ -232,7 +232,7 @@ def generate_html (network)
         end
       end
       
-      h2 "Lines"
+      # h2 "Lines"
       network.each_line do |line|
         div :id => line.html_id do
           h3 "#{line.number} - #{line.name}"
@@ -251,7 +251,7 @@ def generate_html (network)
         end
       end
       
-      h2 "Stations"
+      # h2 "Stations"
       network.each_station do |station|
         div :id => station.html_id do
           h3 "#{station.name}"
