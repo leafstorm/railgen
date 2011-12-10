@@ -232,34 +232,38 @@ def generate_html (network)
         end
       end
       
-      h2 "Lines"
+      # h2 "Lines"
       network.each_line do |line|
-        h3 "#{line.number} - #{line.name}", :id => line.html_id
-        ul do
-          li.direction "↓ #{line.down_direction}"
+        div :id => line.html_id do
+          h3 "#{line.number} - #{line.name}"
+          ul do
+            li.direction "↓ #{line.down_direction}"
           
-          line.each_stop do |st, landing|
-            li.station do
-              a st.name, :href => st.html_link
-              span.loc "(#{st.coords}#{landing ? ', ' : ''}#{landing})"
+            line.each_stop do |st, landing|
+              li.station do
+                a st.name, :href => st.html_link
+                span.loc "(#{st.coords}#{landing ? ', ' : ''}#{landing})"
+              end
             end
-          end
           
-          li.direction "↑ #{line.up_direction}"
+            li.direction "↑ #{line.up_direction}"
+          end
         end
       end
       
-      h2 "Stations"
+      # h2 "Stations"
       network.each_station do |station|
-        h3 "#{station.name}", :id => station.html_id
-        p.coords "(#{station.coords})"
-        p.notes station.notes if station.notes
+        div :id => station.html_id do
+          h3 "#{station.name}"
+          p.coords "(#{station.coords})"
+          p.notes station.notes if station.notes
         
-        ul do
-          station.each_line do |line, landing|
-            li.line do
-              a "#{line.number} - #{line.name}", :href => line.html_link
-              span.loc "(#{landing})" if landing
+          ul do
+            station.each_line do |line, landing|
+              li.line do
+                a "#{line.number} - #{line.name}", :href => line.html_link
+                span.loc "(#{landing})" if landing
+              end
             end
           end
         end
