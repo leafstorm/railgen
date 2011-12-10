@@ -1,0 +1,16 @@
+=======
+Railgen
+=======
+This is a script for generating an HTML listing of a rail network in a
+Minecraft world. How to use it:
+
+1. Install Markaby with ``gem install markaby``.
+2. Add your rail data to a ``.yaml`` file. See the ``pve-6-rails.yaml`` file
+   for an example.
+3. Run ``ruby railgen.rb DATA_FILE HTML_FILE`` to create a HTML file.
+4. The HTML file will include a stylesheet reference to ``rail-style.css``,
+   so you can use that to make it look nice.
+
+Right now it's all static text, but if I find someone who is *really* skilled
+in the arts of graphical programming, I may be able to add a map generator
+in the future.

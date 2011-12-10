@@ -1,0 +1,61 @@
+name: PvE Rail Network
+
+stations:
+    # Main Section
+    Spawn Station:
+        x: -90
+        z: -30
+        notes: "Rails are downstairs, Spawn Portal is upstairs"
+    
+    # Northern Stations
+    Pico Central:
+        x: 0
+        z: -1500
+        notes: "Rails are on an elevated platform - enter through towers"
+    
+    North Portal:
+        x: -5
+        z: -1790
+    
+    # Eastern Stations
+    East Transfer:
+        x: 850
+        z: -120
+    
+    East Portal:
+        x: 1800
+        z: 0
+    
+    New Argoth:
+        x: 1520
+        z: 10
+
+lines:
+    103:
+        name: "North Trunk"
+        direction: north
+        stops:
+        - Spawn Station
+        - [Pico Central, south platform]
+    
+    104:
+        name: "East Trunk"
+        direction: east
+        stops:
+        - Spawn Station
+        - East Transfer
+        - New Argoth
+    
+    300:
+        name: "Pico/Portal"
+        direction: out
+        stops:
+        - [Pico Central, north platform]
+        - North Portal
+    
+    400:
+        name: "Argoth/Portal"
+        direction: out
+        stops:
+        - New Argoth
+        - [East Portal, west of portal]
