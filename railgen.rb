@@ -83,6 +83,20 @@ class RailNetwork
     station
   end
   
+  def get_station (name)
+    if name.is_a?(String)
+      if @stations.has_key? (name)
+        return @stations[name]
+      else
+        raise ArgumentError, "No station named #{name}"
+      end
+    elsif name.is_a?(Station)
+      return name
+    else
+      raise TypeError, "name must be String or Station"
+    end
+  end
+  
   def each_station
     stations.keys.sort.each do |code|
       yield @stations[code]
@@ -166,7 +180,7 @@ class Line
   end
   
   def add_stop (stop, landing)
-    stop = @network.stations[stop] if stop.is_a?(String)
+    stop = @network.get_station stop
     @stops << [stop, landing]
     stop.add_line(self, landing)
   end
