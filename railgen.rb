@@ -22,7 +22,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-require 'markaby'
+require 'haml'
 require 'yaml'
 
 class RailNetwork
@@ -253,84 +253,25 @@ class Station
   end
 end
 
-def generate_html (network)
-  Markaby::Builder.set :indent, 2
-  builder = Markaby::Builder.new
-  builder.html do
-    head do
-      title network.name
-      link :rel => "stylesheet", :type => "text/css", :href => "rail-style.css"
-    end
-    body do
-      h1 network.name
-      
-      div.lines! do
-        h2 "Line Index"
-        ul do
-          network.each_line do |line|
-            li {a "#{line.number} - #{line.name}", :href => line.html_link}
-          end
-        end
-      end
-      
-      div.stations! do
-        h2 "Station Index"
-        ul do
-          network.each_station do |station|
-            li {a station.name, :href => station.html_link}
-          end
-        end
-      end
-      
-      # h2 "Lines"
-      network.each_line do |line|
-        div :id => line.html_id do
-          h3 "#{line.number} - #{line.name}"
-          p.notes line.line_type
-          
-          ul do
-            li.direction "↓ #{line.down_direction}"
-          
-            line.each_stop do |st, landing|
-              li.station do
-                a st.name, :href => st.html_link
-                span.loc "(#{st.coords}#{landing ? ', ' : ''}#{landing})"
-              end
-            end
-            
-            li.station line.stops[0][0] if line.flow == :loop
-            
-            li.direction "↑ #{line.up_direction}" unless line.flow == :oneway
-          end
-        end
-      end
-      
-      # h2 "Stations"
-      network.each_station do |station|
-        div :id => station.html_id do
-          h3 "#{station.name}"
-          p.coords "(#{station.coords})"
-          p.notes station.notes if station.notes
-        
-          ul do
-            station.each_line do |line, landing|
-              li.line do
-                a "#{line.number} - #{line.name}", :href => line.html_link
-                span.loc "(#{landing})" if landing
-              end
-            end
-          end
-        end
-      end
-    end
+
+class RenderContext
+  def initialize (network)
+    @network = network
+    @stylesheet = "rail-style.css"
   end
 end
+
+def render_template(template_name, network)
+  haml = Haml::Engine.new(File.read(template_name))
+  haml.render RenderContext.new(network)
+end
+    
 
 if __FILE__ == $0
   data = ARGV[0]
   html = ARGV[1]
   network = RailNetwork.from_file(data)
   File.open(html, 'w') do |io|
-    io.write generate_html(network)
+    io.write render_template("templates/listing.haml", network)
   end
 end

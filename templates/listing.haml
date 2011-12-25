@@ -1,0 +1,58 @@
+!!!
+%html
+  %head
+    %title= @network.name
+    %link(rel="stylesheet" type="text/css" href=@stylesheet)
+
+  %body
+    %h1#title= @network.name
+    
+    #index
+      #lines
+        %h2 Line Index
+        %ul
+          - @network.each_line do |line|
+            %li
+              %a{:href => line.html_link} #{line.number} &mdash; #{line.name}
+      
+      #stations
+        %h2 Station Index
+        %ul
+          - @network.each_station do |st|
+            %li
+              %a{:href => st.html_link}= st.name
+    
+    - @network.each_line do |line|
+      %div{:id => line.html_id, :class => "line"}
+        %h3 #{line.number} &mdash; #{line.name}
+        %p.notes= line.line_type
+        
+        %ul
+          %li.direction &darr; #{line.down_direction}
+          - line.each_stop do |st, landing|
+            %li.stop
+              %a{:href => st.html_link}= st.name
+              %span.loc
+                - if landing
+                  (#{st.coords}, #{landing})
+                - else
+                  (#{st.coords})
+          - if line.type == :loop
+            %li.stop
+              = line.stops[0][0].name
+          - if line.type != :oneway
+            %li.direction &uarr; #{line.up_direction}
+    
+    - @network.each_station do |station|
+      %div{:id => station.html_id, :class => "station"}
+        %h3= station.name
+        %p.coords= station.coords
+        - if station.notes
+          %p.notes= station.notes
+        
+        %ul.lines
+          - station.each_line do |line, landing|
+            %li.line
+              %a{:href => line.html_link} #{line.number} &mdash; #{line.name}
+              - if landing
+                %span.loc (#{landing})

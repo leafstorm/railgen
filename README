@@ -4,7 +4,7 @@ Railgen
 This is a script for generating an HTML listing of a rail network in a
 Minecraft world. How to use it:
 
-1. Install Markaby with ``gem install markaby``.
+1. Install Haml with ``gem install haml``.
 2. Add your rail data to a ``.yaml`` file. See the ``pve-6-rails.yaml`` file
    for an example.
 3. Run ``ruby railgen.rb DATA_FILE HTML_FILE`` to create a HTML file.
