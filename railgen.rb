@@ -34,7 +34,7 @@ class RailNetwork
     end
     
     data["lines"].each do |n, ln|
-      line = network.add_line n, ln["name"], ln["direction"].to_sym, ln["notes"]
+      line = network.add_line n, ln["name"], ln["direction"].to_sym, ln["flow"].to_sym, ln["type"].to_sym, ln["notes"]
       ln["stops"].each do |stop|
         if stop.is_a?(Array)
           line.add_stop(stop[0], stop[1])
@@ -143,14 +143,22 @@ DIRECTIONS = {
   :levo => ["Levo (Counterclockwise)", "Dextro (Clockwise)"]
 }
 
+LINE_TYPES = {
+  :y12 => "Underground (Y = 12)",
+  :y70 => "Aerial (Y = 70)",
+  :surface => "Surface"
+}
+
 class Line
-  attr_accessor :number, :name, :direction, :notes
+  attr_accessor :number, :name, :direction, :flow, :type, :notes, :stops
   
-  def initialize (network, number, name, direction, notes)
+  def initialize (network, number, name, direction, flow, type, notes)
     @network = network
     @number = number
     @name = name
     @direction = direction
+    @flow = flow
+    @type = type
     @notes = notes
     @stops = []
   end
@@ -177,6 +185,10 @@ class Line
   
   def up_direction
     DIRECTIONS[direction][1]
+  end
+  
+  def line_type
+    LINE_TYPES[type]
   end
   
   def add_stop (stop, landing)
@@ -274,6 +286,8 @@ def generate_html (network)
       network.each_line do |line|
         div :id => line.html_id do
           h3 "#{line.number} - #{line.name}"
+          p.notes line.line_type
+          
           ul do
             li.direction "↓ #{line.down_direction}"
           
@@ -283,8 +297,10 @@ def generate_html (network)
                 span.loc "(#{st.coords}#{landing ? ', ' : ''}#{landing})"
               end
             end
-          
-            li.direction "↑ #{line.up_direction}"
+            
+            li.station line.stops[0][0] if line.flow == :loop
+            
+            li.direction "↑ #{line.up_direction}" unless line.flow == :oneway
           end
         end
       end
