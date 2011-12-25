@@ -1,11 +1,21 @@
 name: PvE Rail Network
 
 stations:
-    # Main Section
+    # Official Stations
     Spawn Station:
         x: -90
         z: -30
         notes: "Rails are downstairs, Spawn Portal is upstairs"
+    
+    # Central Stations
+    Seneca:
+        x: -15
+        z: -250
+    
+    Snapperolle:
+        x: -285
+        z: -35
+        notes: "Access via Snapperolle Underground"
     
     # Northern Stations
     Pico Central:
@@ -16,6 +26,24 @@ stations:
     North Portal:
         x: -5
         z: -1790
+    
+    Montpellier:
+        x: -490
+        z: -1633
+    
+    # Northeastern Stations
+    Blanco Junction:
+        x: 1200
+        z: -1300
+        notes: "No pedestrian access - just switches between lines"
+    
+    Pleasantville:
+        x: 1200
+        z: -1000
+    
+    Beacon Island:
+        x: 540
+        z: -720
     
     # Eastern Stations
     East Transfer:
@@ -29,11 +57,68 @@ stations:
     New Argoth:
         x: 1520
         z: 10
+    
+    "Nuttin' Atoll":
+        x: 1120
+        z: -260
+    
+    # Southeastern Stations
+    Wellspring:
+        x: 945
+        z: 675
+    
+    Kilst Island:
+        x: 1620
+        z: 705
+    
+    East Ocean:
+        x: 1630
+        z: 1500
+    
+    # Southern Stations
+    South Transfer:
+        x: -43
+        z: 850
+    
+    # In the future, jchance may add Birch Island.
+    
+    Nowhere:
+        # Also Nowhere's Y70 station.
+        x: -50
+        z: 1530
+    
+    # Southwestern Stations
+    Deorne:
+        x: -850
+        z: 855
+        notes: "The line selector is after you leave the station"
+    
+    New Hempshire:
+        x: -1460
+        z: 1540
+    
+    # Western Stations
+    West Transfer:
+        x: -845
+        z: -115
+        notes: "No pedestrian access"
+    
+    West Portal:
+        x: -1630
+        z: 40
+        notes: "Also serves Topaz"
+    
+    Something Else:
+        x: -1280
+        z: -1640
 
 lines:
+    # 10X - Cardinal Cross, y = 12
     103:
         name: "North Trunk"
         direction: north
+        flow: twoway
+        type: y12
         stops:
         - Spawn Station
         - [Pico Central, south platform]
@@ -41,21 +126,99 @@ lines:
     104:
         name: "East Trunk"
         direction: east
+        flow: twoway
+        type: y12
         stops:
         - Spawn Station
         - East Transfer
         - New Argoth
     
+    105:
+        name: "South Trunk"
+        direction: south
+        flow: twoway
+        type: y12
+        stops:
+        - Spawn Station
+        - South Transfer
+        - Nowhere
+    
+    # Other 1X0 lines
+    110:
+        name: "850 Loop"
+        direction: dextro
+        flow: twoway
+        type: y12
+        stops:
+        # - North Transfer # broken now
+        - East Transfer
+        - South Transfer
+        - Deorne
+        - West Transfer
+    
+    120:
+        name: "Y70 Outer Loop"
+        direction: dextro
+        flow: loop
+        type: y70
+        stops:
+        - [Pico Central, east platform]
+        - Blanco Junction
+        - Pleasantville
+        - "Nuttin' Atoll"
+        - New Argoth
+        - Kilst Island
+        - East Ocean
+        # - Nowhere Y70
+        - New Hempshire
+        # - South Portal
+        - Something Else
+        - Montpellier
+    
+    # 200 lines - Central (Seneca)
+    207:
+        name: "Seneca/Pleasantville"
+        sign: "Seneca/PV"
+        direction: north
+        flow: twoway
+        type: y12
+        stops:
+        - Seneca
+        - Pleasantville
+    
+    210:
+        name: "Seneca/Snapperolle"
+        sign: "Seneca/Snap."
+        direction: east
+        flow: twoway
+        type: y12
+        stops:
+        - Snapperolle
+        - Seneca
+    
+    # 300 lines - North (Pico)
     300:
         name: "Pico/Portal"
         direction: out
+        flow: twoway
+        type: y70
         stops:
         - [Pico Central, north platform]
         - North Portal
     
+    # 400 lines - East (New Argoth)
     400:
-        name: "Argoth/Portal"
+        name: "New Argoth/Portal"
+        sign: "Argoth/Portal"
         direction: out
+        flow: twoway
+        type: surface
         stops:
         - New Argoth
         - [East Portal, west of portal]
+
+    # 500 lines - South (Nowhere)
+    
+    # 600 lines - West (Topaz)
+    
+    # 700 lines - Northeast (Pleasantville)
