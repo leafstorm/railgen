@@ -231,7 +231,7 @@ end
 
 
 class Station
-  attr_accessor :name, :x, :z, :notes, :lines
+  attr_accessor :name, :notes, :lines
   
   def initialize (network, name, x, z, notes)
     @network = network
@@ -262,16 +262,28 @@ class Station
     "##{html_id}"
   end
   
+  def scalecoord (coord, factor=1)
+    factor == 1 ? coord : (coord.to_f / factor).round
+  end
+  
+  def x (scale=1)
+    scalecoord(@x, scale)
+  end
+  
+  def z (scale=1)
+    scalecoord(@z, scale)
+  end
+  
   def coords
     "x = #{x}, z = #{z}"
   end
   
-  def rel_x
-    -(@network.xrange[0]) + x
+  def rel_x (scale=1)
+    scalecoord(-(@network.xrange[0]) + @x, scale)
   end
   
-  def rel_z
-    -(@network.zrange[0]) + z
+  def rel_z (scale=1)
+    scalecoord(-(@network.zrange[0]) + @z, scale)
   end
   
   def add_line (line, landing)

@@ -55,7 +55,7 @@
                     data-grid="true" data-lineWidth="8")
       %ul(data-label="Stations" visible="false")
         - @network.each_station do |st|
-          %li(data-coords="#{st.rel_x / 100},#{st.rel_z / 100}"
+          %li(data-coords="#{st.rel_x(100)},#{st.rel_z(100)}"
               data-marker="@station")= st.name
       
       - @network.each_line do |line|
@@ -65,7 +65,7 @@
           - line.each_stop do |st|
             /
               #{st.name}
-            %li(data-coords="#{st.rel_x / 100},#{st.rel_z / 100}")
+            %li(data-coords="#{st.rel_x(100)},#{st.rel_z(100)}")
     
     %div#legend
     
