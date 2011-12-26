@@ -37,7 +37,7 @@ class RailNetwork
     end
     
     data["lines"].each do |n, ln|
-      line = network.add_line n, ln["name"], ln["direction"].to_sym, ln["flow"].to_sym, ln["type"].to_sym, ln["notes"]
+      line = network.add_line n, ln["name"], ln["direction"].to_sym, ln["flow"].to_sym, ln["level"].to_sym, ln["type"].to_sym, ln["notes"]
       ln["stops"].each do |stop|
         if stop.is_a?(Array)
           line.add_stop(stop[0], stop[1])
@@ -154,31 +154,48 @@ DIRECTIONS = {
   :levo => ["Levo (Counterclockwise)", "Dextro (Clockwise)"]
 }
 
-LINE_TYPES = {
-  :y12 => "Underground (Y = 12)",
+FLOW_TYPES = {
+  :twoway => "Two-Way",
+  :oneway => "One-Way",
+  :loop => "Two-Way Loop",
+  :onewayloop => "One-Way Loop"
+}
+
+LEVELS = {
   :underground => "Underground",
-  :y70 => "Elevated (Y = 70)",
   :el => "Elevated",
   :surface => "Surface"
 }
 
-LINE_TYPE_COLORS = {
-  :y12 => ["#ff0000", "#f96a6d"],
-  :underground => ["#ff0080", "#ffb2d8"],
-  :y70 => ["#0000ff", "#a19eff"],
-  :el => ["#0080ff", "#a4cdff"],
-  :surface => ["#00ff00", "#7aff59"]
+LINE_TYPES = {
+  :trunk => "Trunk Line",
+  :majorloop => "Major Loop",
+  :local => "Local Line",
+  :citylink => "City Link",
+  :portallink => "Portal Link",
+  :branch => "Branch Link"
 }
 
+LINE_TYPE_COLORS = {
+  :trunk => "#ff0000",
+  :majorloop => "#0000ff",
+  :local => "#ff8000",
+  :citylink => "#008000",
+  :portallink => "#800080",
+  :branch => "#000080"
+}
+
+
 class Line
-  attr_accessor :number, :name, :direction, :flow, :type, :notes, :stops
+  attr_accessor :number, :name, :direction, :flow, :level, :type, :notes, :stops
   
-  def initialize (network, number, name, direction, flow, type, notes)
+  def initialize (network, number, name, direction, flow, level, type, notes)
     @network = network
     @number = number
     @name = name
     @direction = direction
     @flow = flow
+    @level = level
     @type = type
     @notes = notes
     @stops = []
@@ -208,12 +225,20 @@ class Line
     DIRECTIONS[direction][1]
   end
   
-  def line_type
+  def level_name
+    LEVELS[level]
+  end
+  
+  def flow_name
+    FLOW_TYPES[flow]
+  end
+  
+  def type_name
     LINE_TYPES[type]
   end
   
   def color
-    LINE_TYPE_COLORS[type][flow == :oneway ? 1 : 0]
+    LINE_TYPE_COLORS[type]
   end
   
   def add_stop (stop, landing)

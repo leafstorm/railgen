@@ -25,7 +25,7 @@
     - @network.each_line do |line|
       %div{:id => line.html_id, :class => "line"}
         %h3 #{line.number} &mdash; #{line.name}
-        %p.notes= line.line_type
+        %p.notes #{line.type_name} &mdash; #{line.level_name} #{line.flow_name}
         
         %ul
           %li.direction &darr; #{line.down_direction}
@@ -37,10 +37,10 @@
                   (#{st.coords}, #{landing})
                 - else
                   (#{st.coords})
-          - if line.type == :loop
+          - if line.type == :loop || line.type == :onewayloop
             %li.stop
               = line.stops[0][0].name
-          - if line.type != :oneway
+          - if line.type != :oneway && line.type != :onewayloop
             %li.direction &uarr; #{line.up_direction}
     
     - @network.each_station do |station|

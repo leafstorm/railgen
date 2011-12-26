@@ -82,6 +82,10 @@ stations:
         x: -43
         z: 850
     
+    South Portal:
+        x: -40
+        z: 1700
+    
     # In the future, jchance may add Birch Island.
     
     Nowhere:
@@ -142,8 +146,9 @@ lines:
     103:
         name: "North Trunk"
         direction: north
+        type: trunk
         flow: twoway
-        type: y12
+        level: underground
         stops:
         - Spawn Station
         - [Pico, south platform]
@@ -151,8 +156,9 @@ lines:
     104:
         name: "East Trunk"
         direction: east
+        type: trunk
         flow: twoway
-        type: y12
+        level: underground
         stops:
         - Spawn Station
         - East Transfer
@@ -161,8 +167,9 @@ lines:
     105:
         name: "South Trunk"
         direction: south
+        type: trunk
         flow: twoway
-        type: y12
+        level: underground
         stops:
         - Spawn Station
         - South Transfer
@@ -172,8 +179,9 @@ lines:
     110:
         name: "850 Loop"
         direction: dextro
-        flow: twoway
-        type: y12
+        type: majorloop
+        flow: loop
+        level: underground
         stops:
         # - North Transfer # broken now
         - East Transfer
@@ -186,8 +194,9 @@ lines:
     120:
         name: "Y70 Outer Loop"
         direction: dextro
+        type: majorloop
         flow: loop
-        type: y70
+        level: el
         stops:
         - [Pico, east platform]
         - Blanco Junction
@@ -209,8 +218,9 @@ lines:
         name: "Seneca/Pleasantville"
         sign: "Seneca/PV"
         direction: north
+        type: citylink
         flow: twoway
-        type: y12
+        level: underground
         stops:
         - Seneca
         - Pleasantville
@@ -219,8 +229,9 @@ lines:
         name: "Seneca/Snapperolle"
         sign: "Seneca/Snap."
         direction: east
+        type: citylink
         flow: twoway
-        type: y12
+        level: underground
         stops:
         - Snapperolle
         - Seneca
@@ -229,8 +240,9 @@ lines:
     300:
         name: "Pico/Portal"
         direction: out
+        type: portallink
         flow: twoway
-        type: el
+        level: el
         stops:
         - [Pico, north platform]
         - North Portal
@@ -241,20 +253,32 @@ lines:
         sign: "Argoth/Portal"
         direction: out
         flow: twoway
-        type: surface
+        type: portallink
+        level: surface
         stops:
         - New Argoth
         - [East Portal, west of portal]
 
     # 500 lines - South (Nowhere)
-    #520:
-    #    name: "Lothos/Portal"
-    #    direction: south
-    #    flow: twoway
-    #    type: underground
-    #    stops:
-    #    - [Lothos, "east [green] bay"]
-    #    - South Portal
+    520:
+        name: "Lothos/Portal"
+        direction: south
+        type: portallink
+        flow: twoway
+        level: underground
+        stops:
+        - [Lothos, "east [green] bay"]
+        - South Portal
+    
+    540:
+        name: "Deepholm"
+        direction: in
+        type: branch
+        flow: twoway
+        level: el
+        stops:
+        - Deepholm Junction
+        - Deepholm
     
     # 600 lines - West (Topaz)
     
