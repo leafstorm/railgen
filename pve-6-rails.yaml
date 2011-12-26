@@ -47,6 +47,11 @@ stations:
         x: 540
         z: -720
     
+    # Northwestern Stations
+    Aqua Fria:
+        x: -850
+        z: -850
+    
     # Eastern Stations
     East Transfer:
         x: 850
@@ -92,7 +97,7 @@ stations:
     # Southwestern Stations
     Deorne:
         x: -850
-        z: 855
+        z: 850
         notes: "The line selector is after you leave the station"
     
     New Hempshire:
@@ -145,6 +150,16 @@ lines:
         - South Transfer
         - Nowhere
     
+    106:
+        name: "West Trunk"
+        direction: west
+        flow: twoway
+        type: y12
+        stops:
+        - Spawn Station
+        - West Transfer
+        - West Portal
+    
     # Other 1X0 lines
     110:
         name: "850 Loop"
@@ -154,9 +169,11 @@ lines:
         stops:
         # - North Transfer # broken now
         - East Transfer
+        - Wellspring
         - South Transfer
         - Deorne
         - West Transfer
+        - Aqua Fria
     
     120:
         name: "Y70 Outer Loop"
@@ -179,14 +196,15 @@ lines:
     
     # 200 lines - Central (Seneca)
     207:
-        name: "Seneca/Pleasantville"
-        sign: "Seneca/PV"
+        name: "Seneca/Pleasantville/Pico"
+        sign: "Seneca/PV/Pico"
         direction: north
         flow: twoway
         type: y12
         stops:
         - Seneca
         - Pleasantville
+        - Pico Central
     
     210:
         name: "Seneca/Snapperolle"
