@@ -66,6 +66,8 @@
             /
               #{st.name}
             %li(data-coords="#{st.rel_x(100)},#{st.rel_z(100)}")
+          - if line.loop?
+            %li(data-coords="#{line.stops[0][0].rel_x(100)},#{line.stops[0][0].rel_z(100)}")
     
     %div#legend
     

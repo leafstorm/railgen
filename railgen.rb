@@ -233,6 +233,14 @@ class Line
     FLOW_TYPES[flow]
   end
   
+  def loop?
+    [:loop, :onewayloop].include?(flow)
+  end
+  
+  def oneway?
+    [:oneway, :onewayloop].include?(flow)
+  end
+  
   def type_name
     LINE_TYPES[type]
   end

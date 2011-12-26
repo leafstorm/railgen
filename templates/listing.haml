@@ -37,10 +37,10 @@
                   (#{st.coords}, #{landing})
                 - else
                   (#{st.coords})
-          - if line.type == :loop || line.type == :onewayloop
+          - if line.loop?
             %li.stop
               = line.stops[0][0].name
-          - if line.type != :oneway && line.type != :onewayloop
+          - if !(line.oneway?)
             %li.direction &uarr; #{line.up_direction}
     
     - @network.each_station do |station|
