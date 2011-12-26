@@ -22,6 +22,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+require 'optparse'
 require 'haml'
 require 'yaml'
 
@@ -255,23 +256,51 @@ end
 
 
 class RenderContext
-  def initialize (network)
+  def initialize (network, stylesheet)
     @network = network
-    @stylesheet = "rail-style.css"
+    @stylesheet = stylesheet
   end
 end
 
-def render_template(template_name, network)
+
+def render_template(template_name, network, stylesheet)
   haml = Haml::Engine.new(File.read(template_name))
-  haml.render RenderContext.new(network)
+  haml.render RenderContext.new(network, stylesheet)
 end
-    
+
 
 if __FILE__ == $0
+  options = {:template => "templates/listing.haml", :output => nil,
+             :style => "rail-style.css"}
+  option_parser = OptionParser.new do |opts|
+    opts.banner = "Usage: ruby railgen.rb [OPTIONS] DATAFILE"
+    
+    opts.on("-t", "--template FILE", "Use this Haml template") do |t|
+      options[:template] = t
+    end
+    opts.on("-o", "--output FILE", "Write output to this HTML file") do |f|
+      options[:output] = f
+    end
+    opts.on("-s", "--stylesheet LINK", "Use this stylesheet reference") do |s|
+      options[:style] = s
+    end
+    opts.on_tail("-h", "--help", "Display help") do
+      puts opts
+      exit
+    end
+  end
+  option_parser.parse!
+  
   data = ARGV[0]
-  html = ARGV[1]
+  unless data
+    puts option_parser
+    exit
+  end
+  template = options[:template]
+  output = (options[:output] or File.basename(template).gsub("haml", "html"))
+  
   network = RailNetwork.from_file(data)
-  File.open(html, 'w') do |io|
-    io.write render_template("templates/listing.haml", network)
+  File.open(output, 'w') do |io|
+    io.write render_template(template, network, options[:style])
   end
 end
