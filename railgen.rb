@@ -160,6 +160,12 @@ LINE_TYPES = {
   :surface => "Surface"
 }
 
+LINE_TYPE_COLORS = {
+  :y12 => ["#ff0000", "#f96a6d"],
+  :y70 => ["#0000ff", "#a19eff"],
+  :surface => ["#00ff00", "#7aff59"]
+}
+
 class Line
   attr_accessor :number, :name, :direction, :flow, :type, :notes, :stops
   
@@ -200,6 +206,10 @@ class Line
   
   def line_type
     LINE_TYPES[type]
+  end
+  
+  def color
+    LINE_TYPE_COLORS[type][flow == :oneway ? 1 : 0]
   end
   
   def add_stop (stop, landing)

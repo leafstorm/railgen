@@ -1,0 +1,73 @@
+!!!
+%html
+  %head
+    %title= @network.name
+    :css
+      body
+      {
+          font-family: Verdana;
+          font-size: 8pt;
+      }
+  
+      /* The main DIV for the map */
+      #subway-map
+      {
+          margin: 0;
+          width: #{@network.zlength / 100 * 20}px;
+          height: #{@network.xlength / 100 * 20}px;
+          background-color: white;
+      }
+  
+      /* Text labels */
+      .text
+      {
+          text-decoration: none;
+          color: black;
+      }
+  
+      #legend
+      {
+          float: left;
+          width: 0px;
+          height:0px;
+      /*visibility:hidden;*/
+      }
+  
+      #legend div
+      {
+          height: 25px;
+      }
+  
+      #legend span
+      {
+          margin: 5px 5px 5px 0;
+      }
+      #subway-map span
+      {
+          margin: 5px 5px 5px 0;
+      }
+    %script(type="text/javascript" src="js/jquery.min.js")
+    %script(type="text/javascript" src="js/jquery.subwayMap-0.5.0.js")
+  %body
+    %div#subway-map(data-columns="#{@network.zlength / 100}"
+                    data-rows="#{@network.xlength / 100}" data-cellSize="20"
+                    data-legendId="legend" data-textClass="text"
+                    data-grid="true" data-lineWidth="8")
+      %ul(data-label="Stations" visible="false")
+        - @network.each_station do |st|
+          %li(data-coords="#{st.rel_x / 100},#{st.rel_z / 100}"
+              data-marker="@station")= st.name
+      
+      - @network.each_line do |line|
+        %ul(data-color="#{line.color}" visible="false")
+          /
+            #{line.number} - #{line.name}
+          - line.each_stop do |st|
+            /
+              #{st.name}
+            %li(data-coords="#{st.rel_x / 100},#{st.rel_z / 100}")
+    
+    %div#legend
+    
+    :javascript
+      $("#subway-map").subwayMap({debug: true});
