@@ -29,6 +29,8 @@ require 'yaml'
 class RailNetwork
   def self.load (data)
     network = self.new(data["name"] || "Rail Network")
+    network.xrange = data["xrange"]
+    network.zrange = data["zrange"]
     
     data["stations"].each do |n, st|
       network.add_station n, st["x"], st["z"], st["notes"]
@@ -56,7 +58,7 @@ class RailNetwork
     self.load(data)
   end
   
-  attr_accessor :name, :stations, :lines
+  attr_accessor :name, :stations, :lines, :xrange, :zrange
   
   def initialize (name)
     @name = name
@@ -70,6 +72,14 @@ class RailNetwork
   
   def inspect
     "#<RailNetwork:#{object_id} #{name.inspect}>"
+  end
+  
+  def xlength
+    xrange[1] - xrange[0]
+  end
+  
+  def zlength
+    zrange[1] - zrange[0]
   end
   
   def add_line (*args)
@@ -240,6 +250,14 @@ class Station
   
   def coords
     "x = #{x}, z = #{z}"
+  end
+  
+  def rel_x
+    -(@network.xrange[0]) + x
+  end
+  
+  def rel_z
+    -(@network.zrange[0]) + z
   end
   
   def add_line (line, landing)

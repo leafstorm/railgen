@@ -1,4 +1,6 @@
 name: PvE Rail Network
+xrange: [-2000, 2000]
+zrange: [-2000, 2000]
 
 stations:
     # Official Stations
