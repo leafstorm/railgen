@@ -20,7 +20,7 @@ stations:
         notes: "Access via Snapperolle Underground"
     
     # Northern Stations
-    Pico Central:
+    Pico:
         x: 0
         z: -1500
         notes: "Rails are on an elevated platform - enter through towers"
@@ -89,6 +89,10 @@ stations:
         x: -50
         z: 1530
     
+    Lothos:
+        x: -230
+        z: 1130
+    
     # Southwestern Stations
     Deorne:
         x: -850
@@ -99,16 +103,35 @@ stations:
         x: -1460
         z: 1540
     
+    Deepholm Junction:
+        x: -1630
+        z: 1100
+        notes: "No pedestrian access - just switches between lines"
+    
+    Deepholm:
+        # Deepholm Junction connects here - elevated rail
+        x: -1285
+        z: 1090
+    
     # Western Stations
     West Transfer:
         x: -845
         z: -115
         notes: "No pedestrian access"
     
-    West Portal:
+    Topaz West:
         x: -1630
         z: 40
-        notes: "Also serves Topaz"
+    
+    # Northwestern Stations
+    Agua Fria:
+        x: -925
+        z: -760
+        notes: "The line selector is after you leave the station"
+    
+    Snowhedge:
+        x: -1630
+        z: -650
     
     Something Else:
         x: -1280
@@ -123,7 +146,7 @@ lines:
         type: y12
         stops:
         - Spawn Station
-        - [Pico Central, south platform]
+        - [Pico, south platform]
     
     104:
         name: "East Trunk"
@@ -154,9 +177,11 @@ lines:
         stops:
         # - North Transfer # broken now
         - East Transfer
+        - Wellspring
         - South Transfer
         - Deorne
         - West Transfer
+        - Agua Fria
     
     120:
         name: "Y70 Outer Loop"
@@ -164,7 +189,7 @@ lines:
         flow: loop
         type: y70
         stops:
-        - [Pico Central, east platform]
+        - [Pico, east platform]
         - Blanco Junction
         - Pleasantville
         - "Nuttin' Atoll"
@@ -173,7 +198,9 @@ lines:
         - East Ocean
         # - Nowhere Y70
         - New Hempshire
-        # - South Portal
+        - Deepholm Junction
+        - Topaz West
+        - Snowhedge
         - Something Else
         - Montpellier
     
@@ -203,9 +230,9 @@ lines:
         name: "Pico/Portal"
         direction: out
         flow: twoway
-        type: y70
+        type: el
         stops:
-        - [Pico Central, north platform]
+        - [Pico, north platform]
         - North Portal
     
     # 400 lines - East (New Argoth)
@@ -220,6 +247,14 @@ lines:
         - [East Portal, west of portal]
 
     # 500 lines - South (Nowhere)
+    #520:
+    #    name: "Lothos/Portal"
+    #    direction: south
+    #    flow: twoway
+    #    type: underground
+    #    stops:
+    #    - [Lothos, "east [green] bay"]
+    #    - South Portal
     
     # 600 lines - West (Topaz)
     

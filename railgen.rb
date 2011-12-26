@@ -156,13 +156,17 @@ DIRECTIONS = {
 
 LINE_TYPES = {
   :y12 => "Underground (Y = 12)",
-  :y70 => "Aerial (Y = 70)",
+  :underground => "Underground",
+  :y70 => "Elevated (Y = 70)",
+  :el => "Elevated",
   :surface => "Surface"
 }
 
 LINE_TYPE_COLORS = {
   :y12 => ["#ff0000", "#f96a6d"],
+  :underground => ["#ff0080", "#ffb2d8"],
   :y70 => ["#0000ff", "#a19eff"],
+  :el => ["#0080ff", "#a4cdff"],
   :surface => ["#00ff00", "#7aff59"]
 }
 
