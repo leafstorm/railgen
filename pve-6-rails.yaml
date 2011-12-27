@@ -33,6 +33,10 @@ stations:
         x: -490
         z: -1633
     
+    Pico PV Embassy:
+        x: 12
+        z: -1420
+    
     # Northeastern Stations
     Blanco Junction:
         x: 1200
@@ -72,6 +76,14 @@ stations:
     Kilst Island:
         x: 1620
         z: 705
+    
+    Not Bacon:
+        x: 1630
+        z: 875
+    
+    Birch Island:
+        x: 1630
+        z: 1340
     
     East Ocean:
         x: 1630
@@ -140,6 +152,10 @@ stations:
     Something Else:
         x: -1280
         z: -1640
+    
+    Andaren:
+        x: -1190
+        z: -1630
 
 lines:
     # 10X - Cardinal Cross, y = 12
@@ -204,6 +220,8 @@ lines:
         - "Nuttin' Atoll"
         - New Argoth
         - Kilst Island
+        - Not Bacon
+        - Birch Island
         - East Ocean
         # - Nowhere Y70
         - New Hempshire
@@ -211,6 +229,7 @@ lines:
         - Topaz West
         - Snowhedge
         - Something Else
+        - Andaren
         - Montpellier
     
     # 200 lines - Central (Seneca)
@@ -283,3 +302,12 @@ lines:
     # 600 lines - West (Topaz)
     
     # 700 lines - Northeast (Pleasantville)
+    710:
+        name: "PV/Pico Embassy"
+        direction: out
+        type: citylink
+        flow: twoway
+        level: underground
+        stops:
+        - Pleasantville
+        - Pico PV Embassy
