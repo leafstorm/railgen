@@ -75,7 +75,15 @@ stations:
     "Nuttin' Atoll":
         x: 1120
         z: -260
-    
+
+    New Athens Substation:
+        x: 946
+        z: 491
+
+    New Athens:
+        x: 951
+        z: 533
+        
     # Southeastern Stations
     Wellspring:
         x: 945
@@ -353,6 +361,27 @@ lines:
         - "Island/Argoth Junction"
         - Derp Town
 
+    430:
+        name: "Argoth/Wellspring"
+        direction: west
+        flow: twoway
+        type: citylink
+        level: underground
+        stops:
+        - New Argoth
+        - New Athens Substation
+        - Wellspring
+
+    440:
+        name: "New Athens Spur"
+        direction: east
+        flow: twoway
+        type: citylink
+        level: underground
+        stops:
+        - New Athens Substation
+        - New Athens
+        
     # 500 lines - South (Nowhere)
     520:
         name: "Lothos/Portal"
