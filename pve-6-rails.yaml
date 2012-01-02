@@ -92,7 +92,28 @@ stations:
     East Ocean:
         x: 1630
         z: 1500
-    
+
+    "Monkeh/Whore Junction":
+        x: 2323
+        z: 312
+
+    Whore Island:
+        x: 2518
+        z: 51
+
+    Monkeh Island:
+        x: 2337
+        z: 567
+
+    "Island/Argoth Junction":
+        x: 1521
+        z: 312
+
+    Derp Town:
+        x: 905
+        z: 310
+        notes: "Station access via ladder down in sandstone building. Not connected to 850 loop."
+        
     # Southern Stations
     South Transfer:
         x: -43
@@ -281,6 +302,28 @@ lines:
         stops:
         - New Argoth
         - [East Portal, west of portal]
+
+    410:
+        name: "Monkeh Island"
+        direction: out
+        flow: twoway
+        type: citylink
+        level: underground
+        stops:
+        - "Monkeh/Whore Junction"
+        - Monkeh Island
+
+    420:
+        name: "Whore Island"
+        direction: west
+        flow: twoway
+        type: citylink
+        level: underground
+        stops:
+        - Whore Island
+        - "Monkeh/Whore Junction"
+        - "Island/Argoth Junction"
+        - Derp Town
 
     # 500 lines - South (Nowhere)
     520:
