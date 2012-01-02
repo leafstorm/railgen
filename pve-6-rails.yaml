@@ -50,7 +50,11 @@ stations:
     Beacon Island:
         x: 540
         z: -720
-    
+
+    Gobias:
+        x: 2500
+        z: -1000
+        
     # Eastern Stations
     East Transfer:
         x: 850
@@ -311,3 +315,23 @@ lines:
         stops:
         - Pleasantville
         - Pico PV Embassy
+
+    720:
+        name: "PV/Beacon Island"
+        direction: out
+        type: citylink
+        flow: twoway
+        level: underground
+        stops:
+        - Pleasantville
+        - Beacon Island
+
+    730:
+        name: "PV/Gobias"
+        direction: out
+        type: citylink
+        flow: twoway
+        level: underground
+        stops:
+        - Pleasantville
+        - Gobias
