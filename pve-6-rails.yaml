@@ -79,6 +79,7 @@ stations:
     New Athens Substation:
         x: 946
         z: 491
+        notes: "No surface access"
 
     New Athens:
         x: 951
@@ -108,6 +109,7 @@ stations:
     "Monkeh/Whore Junction":
         x: 2323
         z: 312
+        notes: "No surface access"
 
     Whore Island:
         x: 2518
@@ -120,6 +122,7 @@ stations:
     "Island/Argoth Junction":
         x: 1521
         z: 312
+        notes: "No surface access"
 
     Derp Town:
         x: 905
