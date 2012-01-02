@@ -18,6 +18,10 @@ stations:
         x: -285
         z: -35
         notes: "Access via Snapperolle Underground"
+
+    SE Terminal:
+        x: 8
+        z: 129
     
     # Northern Stations
     Pico:
@@ -293,6 +297,16 @@ lines:
         stops:
         - Snapperolle
         - Seneca
+
+    220:
+        name: "Wellspring/Spawn"
+        direction: out
+        type: citylink
+        flow: twoway
+        level: underground
+        stops:
+        - SE Terminal
+        - Wellspring
     
     # 300 lines - North (Pico)
     300:
