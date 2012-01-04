@@ -46,6 +46,14 @@ stations:
         x: 1200
         z: -1300
         notes: "No pedestrian access - just switches between lines"
+
+    saffsd Junction:
+        x: 1226
+        z: -1784
+
+    Blanco:
+        x: 1765
+        z: -1781
     
     Pleasantville:
         x: 1200
@@ -58,6 +66,14 @@ stations:
     Gobias:
         x: 2500
         z: -1000
+
+    Esper:
+        x: 1025
+        z: -1418
+
+    Esper PV Express:
+        x: 1047
+        z: -1342
         
     # Eastern Stations
     East Transfer:
@@ -255,6 +271,7 @@ lines:
         level: el
         stops:
         - [Pico, east platform]
+        - Esper
         - Blanco Junction
         - Pleasantville
         - "Nuttin' Atoll"
@@ -424,3 +441,25 @@ lines:
         stops:
         - Pleasantville
         - Gobias
+
+    740:
+        name: "PV/Esper"
+        direction: out
+        type: citylink
+        flow: twoway
+        level: underground
+        stops:
+        - Pleasantville
+        - Esper PV Express
+
+    750:
+        name: "Blanco Rail"
+        direction: out
+        type: citylink
+        flow: twoway
+        level: elevated
+        stops:
+        - Blanco Junction
+        - saffsd Junction
+        - Blanco
+    
