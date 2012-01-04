@@ -92,11 +92,6 @@ stations:
         x: 1120
         z: -260
 
-    New Athens Substation:
-        x: 946
-        z: 491
-        notes: "No surface access"
-
     New Athens:
         x: 951
         z: 533
@@ -380,18 +375,8 @@ lines:
         level: underground
         stops:
         - New Argoth
-        - New Athens Substation
-        - Wellspring
-
-    440:
-        name: "New Athens Spur"
-        direction: east
-        flow: twoway
-        type: citylink
-        level: underground
-        stops:
-        - New Athens Substation
         - New Athens
+        - Wellspring
 
     450:
         name: "Hall of Pillars"
