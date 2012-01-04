@@ -144,6 +144,11 @@ stations:
         x: 905
         z: 310
         notes: "Station access via ladder down in sandstone building. Not connected to 850 loop."
+
+    Hall of Pillars:
+        x: 1559
+        z: 2230
+        notes: "Schererererer's Uberproject"
         
     # Southern Stations
     South Transfer:
@@ -387,6 +392,17 @@ lines:
         stops:
         - New Athens Substation
         - New Athens
+
+    450:
+        name: "Hall of Pillars"
+        direction: south
+        flow: twoway
+        type: citylink
+        level: underground
+        stops:
+        - New Argoth
+        - "Island/Argoth Junction"
+        - Hall of Pillars
         
     # 500 lines - South (Nowhere)
     520:
