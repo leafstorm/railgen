@@ -40,7 +40,11 @@ stations:
     Pico PV Embassy:
         x: 12
         z: -1420
-    
+
+    North Transfer:
+        x: -62
+        z: -848
+
     # Northeastern Stations
     Blanco Junction:
         x: 1200
@@ -225,6 +229,18 @@ stations:
         x: -1190
         z: -1630
 
+    Metro Hub:
+        x: -1146
+        z: -1005
+
+    Metro West:
+        x: -1626
+        z: -1009
+
+    Dimma Vale:
+        x: -1019
+        z: -1106
+
 lines:
     # 10X - Cardinal Cross, y = 12
     103:
@@ -235,6 +251,7 @@ lines:
         level: underground
         stops:
         - Spawn Station
+        - North Transfer
         - [Pico, south platform]
     
     104:
@@ -267,7 +284,7 @@ lines:
         flow: loop
         level: underground
         stops:
-        # - North Transfer # broken now
+        - North Transfer
         - East Transfer
         - Wellspring
         - South Transfer
@@ -299,6 +316,7 @@ lines:
         - QN Junction
         - Topaz West
         - Snowhedge
+        - Metro West
         - Something Else
         - Andaren
         - Montpellier
@@ -346,7 +364,38 @@ lines:
         stops:
         - [Pico, north platform]
         - North Portal
-    
+
+    310:
+        name: "Beacon Island/Pico"
+        direction: north
+        type: citylink
+        flow: oneway
+        level: underground
+        stops:
+        - Beacon Island
+        - Pico PV Embassy
+
+    320:
+        name: "Metro/Dimma Vale"
+        direction: east
+        type: citylink
+        flow: twoway
+        level: underground
+        stops:
+        - Metro West
+        - Metro Hub
+        - Dimma Vale
+
+    321:
+        name: "Metro/Agua Fria"
+        direction: east
+        type: citylink
+        flow: twoway
+        level: underground
+        stops:
+        - Metro Hub
+        - Agua Fria
+
     # 400 lines - East (New Argoth)
     400:
         name: "New Argoth/Portal"
