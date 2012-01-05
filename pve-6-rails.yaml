@@ -199,7 +199,7 @@ stations:
     
     QN Junction:
         x: -1630
-        z 717
+        z: 717
 
     # Western Stations
     West Transfer:
