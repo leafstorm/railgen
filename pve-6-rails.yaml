@@ -46,9 +46,9 @@ stations:
         z: -848
 
     # Northeastern Stations
-    Blanco Junction:
+    Northeast Junction:
         x: 1200
-        z: -1300
+        z: -1400
         notes: "No pedestrian access - just switches between lines"
 
     saffsd Junction:
@@ -58,7 +58,11 @@ stations:
     Blanco:
         x: 1765
         z: -1781
-    
+
+    Diehimmel:
+        x: 1600
+        z: -1487
+        
     Pleasantville:
         x: 1200
         z: -1000
@@ -289,7 +293,7 @@ lines:
         stops:
         - [Pico, east platform]
         - Esper
-        - Blanco Junction
+        - Northeast Junction
         - Pleasantville
         - "Nuttin' Atoll"
         - New Argoth
@@ -509,7 +513,16 @@ lines:
         flow: twoway
         level: elevated
         stops:
-        - Blanco Junction
+        - Northeast Junction
         - saffsd Junction
         - Blanco
-    
+
+    760:
+        name: "Diehimmel Rail"
+        direction: east
+        type: citylink
+        flow: twoway
+        level: elevated
+        stops:
+        - Northeast Junction
+        - Diehimmel
