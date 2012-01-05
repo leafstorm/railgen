@@ -172,6 +172,10 @@ stations:
     Lothos:
         x: -230
         z: 1130
+
+    Unknown Station:
+        x: -411
+        z: 1632
     
     # Southwestern Stations
     Deorne:
@@ -193,6 +197,10 @@ stations:
         x: -1285
         z: 1090
     
+    QN Junction:
+        x: -1630
+        z: 717
+
     # Western Stations
     West Transfer:
         x: -845
@@ -202,6 +210,10 @@ stations:
     Topaz West:
         x: -1630
         z: 40
+
+    West Portal:
+        x: -1709
+        z: 31
     
     # Northwestern Stations
     Agua Fria:
@@ -302,8 +314,10 @@ lines:
         - Birch Island
         - East Ocean
         # - Nowhere Y70
+        - Unknown Station
         - New Hempshire
         - Deepholm Junction
+        - QN Junction
         - Topaz West
         - Snowhedge
         - Metro West
