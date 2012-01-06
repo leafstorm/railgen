@@ -161,6 +161,14 @@ stations:
     South Portal:
         x: -40
         z: 1700
+
+    "Makdaam's Retreat":
+        x: 2
+        z: 2401
+
+    Southquan:
+        x: 2
+        z: 2810
     
     # In the future, jchance may add Birch Island.
     
@@ -200,6 +208,14 @@ stations:
     QN Junction:
         x: -1630
         z: 717
+
+    Cathedral:
+        x: -299
+        z: 194
+
+    Lothos Desert:
+        x: -585
+        z: 1130
 
     # Western Stations
     West Transfer:
@@ -465,8 +481,21 @@ lines:
         level: underground
         stops:
         - [Lothos, "east [green] bay"]
+        - Nowhere
         - South Portal
-    
+
+    530:
+        name: "Southquan Rail"
+        direction: south
+        type: citylink
+        flow: twoway
+        level: surface
+        stops:
+        - South Portal
+        - "Makdaam's Retreat"
+        - Southquan
+
+
     540:
         name: "Deepholm"
         direction: in
@@ -476,6 +505,27 @@ lines:
         stops:
         - Deepholm Junction
         - Deepholm
+
+    550:
+        name: "Lothos/Deorne"
+        direction: west
+        type: citylink
+        flow: twoway
+        level: underground
+        stops:
+        - Lothos
+        - Lothos Desert
+        - Deorne
+
+    560:
+        name: "Lothos/Cathdral"
+        direction: north
+        type: citylink
+        flow: twoway
+        level: underground
+        stops:
+        - Lothos
+        - Cathedral
     
     # 600 lines - West (Topaz)
     
