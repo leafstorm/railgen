@@ -1,5 +1,6 @@
 <html>
 <head>
+<title>MCPublic PvE Rail Directions</title>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="pve-6-rails-connection.js"></script>
 <script>
@@ -67,7 +68,9 @@ function calculateDirections() {
 </script>
 </head>
 <body>
+<label for="from">From:</label>
 <select id="from" onChange="calculateDirections()"></select>
+<label for="to">To:</label>
 <select id="to" onChange="calculateDirections()"></select>
 <div id="directions"></div>
 </body>
