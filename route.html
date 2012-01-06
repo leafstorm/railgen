@@ -51,7 +51,7 @@ function walkStations(station, route, to) {
 function calculateRouteDistance(route) {
 	var distance = 0;
 	for (route_index in route) {
-		if(route_index < route.length - 2) {
+		if(route_index < route.length - 1) {
 			x = Math.abs(stations[route[parseInt(route_index)]].x
 				- stations[route[parseInt(route_index)+1]].x);
 			z = Math.abs(stations[route[parseInt(route_index)]].z
