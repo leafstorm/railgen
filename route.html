@@ -22,11 +22,12 @@ var routes = [];
 function walkStations(station, route, to) {
 	for (dest_index in stations[station].destinations) {
 		var destination = stations[station].destinations[dest_index];
+		if (destination == route[0]) return;
 		route.push(destination);
 		if (destination == to) {
 			routes.push($.merge([],route)); // copy array
 		} else {
-			if (route.length < 8) {
+			if (route.length < 9) {
 				walkStations(destination, route, to);
 			}
 		}
