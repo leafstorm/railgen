@@ -15,6 +15,7 @@ Generates a json file containing node link information,
 to be used to determine fastest route.''')
 parser.add_argument('inputfile', metavar='INPUT', type=str, help='input yaml file')
 parser.add_argument('outputfile', metavar='OUTPUT', type=str, help='output json file')
+parser.add_argument('--javascript', action='store_true', help='output valid js file hack')
 args = parser.parse_args()
 
 yaml_file = open(args.inputfile, 'r')
@@ -44,5 +45,9 @@ for linename,line in lines.iteritems():
 			
 pprint(stations)
 json_file = open(args.outputfile, 'w')
+if args.javascript:
+	json_file.write("stations =")
 json.dump(stations, json_file)
+if args.javascript:
+	json_file.write(";")
 json_file.close()
