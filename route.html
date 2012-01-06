@@ -35,6 +35,20 @@ function walkStations(station, route, to) {
 	}
 }
 
+function calculateRouteDistance(route) {
+	var distance = 0;
+	for (route_index in route) {
+		if(route_index < route.length - 2) {
+			x = Math.abs(stations[route[parseInt(route_index)]].x
+				- stations[route[parseInt(route_index)+1]].x);
+			z = Math.abs(stations[route[parseInt(route_index)]].z
+				- stations[route[parseInt(route_index)+1]].z);
+			distance += x + z;
+		}
+	}
+	return distance;
+}
+
 function calculateDirections() {
 	from = $("#from").val();
 	to = $("#to").val();
@@ -49,8 +63,15 @@ function calculateDirections() {
 			$("#directions").html("Sorry, I'm too stupid to figure that out.");
 			return;
 		}
-		routes.sort(function(a,b){return a.length - b.length});
-		var directions = '<table id="#routes"><tr><th>Route</th><th>Stops</th></tr>';
+		routes.sort(function(a,b){
+			var stops_difference = a.length - b.length;
+			if (stops_difference == 0) {
+				return calculateRouteDistance(a)-calculateRouteDistance(b);
+			} else {
+				return stops_difference;
+			}
+		});
+		var directions = '<table id="#routes"><tr><th>Route</th><th>Stops</th><th>Distance</th></tr>';
 		for(route_index in routes) {
 			var route = routes[route_index];
 			directions += "<tr><td>";
@@ -60,7 +81,8 @@ function calculateDirections() {
 					directions += " -> ";
 				}
 			}
-			directions += "</td><td>"+route.length+"</td></tr>";
+			directions += "</td><td>"+route.length+"</td>"
+			directions += "<td>"+calculateRouteDistance(route)+" m</td></tr>";
 		}
 		directions += '</table>';
 		$("#directions").html(directions);
