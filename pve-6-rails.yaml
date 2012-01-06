@@ -36,6 +36,10 @@ stations:
     Montpellier:
         x: -490
         z: -1633
+
+    Montpellier Central:
+        x: -523
+        z: -1715
     
     Pico PV Embassy:
         x: 12
@@ -44,6 +48,18 @@ stations:
     North Transfer:
         x: -62
         z: -848
+
+    Cloud City:
+        x: -628
+        z: -1946
+
+    Backcountry Station:
+        x: -43
+        z: -2500
+    
+    "World's End Outpost":
+        x: -43
+        z: -2990   
 
     # Northeastern Stations
     Northeast Junction:
@@ -217,6 +233,10 @@ stations:
         x: -585
         z: 1130
 
+    Southwest 3000:
+        x: -2999
+        z: 2999
+
     # Western Stations
     West Transfer:
         x: -845
@@ -260,6 +280,10 @@ stations:
     Dimma Vale:
         x: -1019
         z: -1106
+
+    Northwest 3000:
+        x: -2999
+        z: -2999
 
 lines:
     # 10X - Cardinal Cross, y = 12
@@ -329,7 +353,7 @@ lines:
         - Not Bacon
         - Birch Island
         - East Ocean
-        # - Nowhere Y70
+        - Nowhere Y70
         - Unknown Station
         - New Hempshire
         - Deepholm Junction
