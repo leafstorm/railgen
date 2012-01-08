@@ -10,12 +10,23 @@ def getStopStation(stop):
 	else:
 		return stop
 
+def removeCorners(lines):
+	for linename,line in lines.iteritems():
+		stops = []
+		for stop in line["stops"]:
+			if not(type(getStopStation(stop)) is int):
+				stops.append(stop)
+		line["stops"]=stops
+		lines[linename] = line
+	return lines
+
 parser = argparse.ArgumentParser(description='''
 Generates a json file containing node link information,
 to be used to determine fastest route.''')
 parser.add_argument('inputfile', metavar='INPUT', type=str, help='input yaml file')
 parser.add_argument('outputfile', metavar='OUTPUT', type=str, help='output json file')
 parser.add_argument('--javascript', action='store_true', help='output valid js file hack')
+parser.add_argument('--quiet', action='store_true', help='suppress JSON on stdout')
 args = parser.parse_args()
 
 yaml_file = open(args.inputfile, 'r')
@@ -24,6 +35,8 @@ yaml_file.close()
 
 stations = yaml_data["stations"]
 lines = yaml_data["lines"]
+
+lines = removeCorners(lines)
 
 for station in stations:
 	stations[station]["destinations"] = []
@@ -42,8 +55,9 @@ for linename,line in lines.iteritems():
 			stations[getStopStation(stop)]["destinations"].append(nextStation)
 		except IndexError:
 			pass
-			
-pprint(stations)
+
+if not(args.quiet):
+	pprint(stations)
 json_file = open(args.outputfile, 'w')
 if args.javascript:
 	json_file.write("stations =")
