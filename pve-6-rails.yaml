@@ -1,6 +1,6 @@
 name: PvE Rail Network
-xrange: [-3000, 3000]
-zrange: [-3000, 3000]
+xrange: [-3200, 3200]
+zrange: [-3200, 3200]
 
 stations:
     # Official Stations
@@ -98,6 +98,10 @@ stations:
     Esper PV Express:
         x: 1047
         z: -1342
+
+    Northeast 3000:
+        x: 2999
+        z: -2999
         
     # Eastern Stations
     East Transfer:
@@ -395,6 +399,21 @@ lines:
         - Montpellier
         - [-100, -1633]
         - [-100, -1500]
+
+    130:
+        name: "3000 Loop"
+        direction: dextro
+        type: majorloop
+        flow: twoway
+        #Change flow to loop once it's a complete loop
+        level: underground
+        stops:
+        - Southwest 3000
+        - Northwest 3000
+        - "World's End Outpost"
+        - Northeast 3000
+        
+        
     
     # 200 lines - Central (Seneca)
     207:
@@ -492,6 +511,50 @@ lines:
         - 850 South West Transfer
         - Deorne
 
+    360:
+        name: "Pico/World's End"
+        direction: north
+        type: citylink
+        flow: twoway
+        level: underground
+        stops:
+        - Pico
+        - [100, -2000]
+        # The above turn is fake, just to draw a better map.
+        - Backcountry Station
+        - "World's End Outpost"
+
+    370:
+        name: "Montpellier"
+        direction: east
+        type: citylink
+        flow: twoway
+        level: underground
+        stops:
+        - Montpellier
+        - Montpellier Central
+        - North Portal
+
+    380:
+        name: "Pico/Montpellier"
+        direction: west
+        type: citylink
+        flow: twoway
+        level: underground
+        stops:
+        - Pico
+        - Montpellier
+
+    390:
+        name: "Cloud City"
+        direction: east
+        type: portallink
+        flow: twoway
+        level: underground
+        stops:
+        - Cloud City
+        - North Portal
+        
     # 400 lines - East (New Argoth)
     400:
         name: "New Argoth/Portal"
