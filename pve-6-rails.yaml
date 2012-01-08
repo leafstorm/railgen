@@ -188,8 +188,12 @@ stations:
     # Southwestern Stations
     Deorne:
         x: -850
-        z: 855
+        z: 865
         notes: "The line selector is after you leave the station"
+
+    850 South West Transfer:
+        x: -850
+        z: 850
     
     New Hempshire:
         x: -1460
@@ -236,6 +240,10 @@ stations:
         x: -925
         z: -760
         notes: "The line selector is after you leave the station"
+
+    850 North West Transfer:
+        x: -850
+        z: -850
     
     Snowhedge:
         x: -1630
@@ -263,7 +271,7 @@ stations:
 
 lines:
     # 10X - Cardinal Cross, y = 12
-    103:
+    101:
         name: "North Trunk"
         direction: north
         type: trunk
@@ -274,7 +282,7 @@ lines:
         - North Transfer
         - [Pico, south platform]
     
-    104:
+    102:
         name: "East Trunk"
         direction: east
         type: trunk
@@ -282,10 +290,11 @@ lines:
         level: underground
         stops:
         - Spawn Station
+        - [-90, -115]
         - East Transfer
         - New Argoth
     
-    105:
+    103:
         name: "South Trunk"
         direction: south
         type: trunk
@@ -295,6 +304,18 @@ lines:
         - Spawn Station
         - South Transfer
         - Nowhere
+
+    104:
+        name: "West Trunk"
+        direction: west
+        type: trunk
+        flow: twoway
+        level: underground
+        stops:
+        - Spawn Station
+        - [-90, -115]
+        - West Transfer
+        - Topaz West
     
     # Other 1X0 lines
     110:
@@ -305,12 +326,14 @@ lines:
         level: underground
         stops:
         - North Transfer
+        - [850,-850]
         - East Transfer
         - Wellspring
+        - [850,850]
         - South Transfer
         - Deorne
         - West Transfer
-        - Agua Fria
+        - 850 North West Transfer
     
     120:
         name: "Y70 Outer Loop"
@@ -324,22 +347,30 @@ lines:
         - Northeast Junction
         - Pleasantville
         - "Nuttin' Atoll"
+        - [1520, -260]
         - New Argoth
         - Kilst Island
         - Not Bacon
         - Birch Island
         - East Ocean
+        - [1630, 1632]
         # - Nowhere Y70
         - Unknown Station
+        - [-1100, 1632]
+        - [-1100, 1540]
         - New Hempshire
+        - [-1630, 1540]
         - Deepholm Junction
         - QN Junction
         - Topaz West
         - Snowhedge
         - Metro West
+        - [-1626, -1640]
         - Something Else
         - Andaren
         - Montpellier
+        - [-100, -1633]
+        - [-100, -1500]
     
     # 200 lines - Central (Seneca)
     207:
@@ -351,6 +382,7 @@ lines:
         level: underground
         stops:
         - Seneca
+        - [-15,-1000]
         - Pleasantville
     
     210:
@@ -415,6 +447,26 @@ lines:
         stops:
         - Metro Hub
         - Agua Fria
+
+    330:
+        name: "850 NW Aqua Fria Transfer"
+        direction: out
+        type: citylink
+        flow: oneway
+        level: underground
+        stops:
+        - 850 North West Transfer
+        - Agua Fria
+
+    350:
+        name: "850 SW Deorne Transfer"
+        direction: out
+        type: citylink
+        flow: oneway
+        level: underground
+        stops:
+        - 850 South West Transfer
+        - Deorne
 
     # 400 lines - East (New Argoth)
     400:
@@ -538,6 +590,7 @@ lines:
         level: underground
         stops:
         - Pleasantville
+        - [-15,-1000]
         - Pico PV Embassy
 
     720:
