@@ -1,0 +1,732 @@
+name: Reddit PvE r6 Rail Network
+xrange: [-3200, 3200]
+zrange: [-3200, 3200]
+
+stations:
+    # Official Stations
+    Spawn Station:
+        x: -90
+        z: -30
+        notes: "Rails are downstairs, Spawn Portal is upstairs"
+    
+    # Central Stations
+    Seneca:
+        x: -15
+        z: -250
+    
+    Snapperolle:
+        x: -285
+        z: -35
+        notes: "Access via Snapperolle Underground"
+
+    SE Terminal:
+        x: 8
+        z: 129
+    
+    # Northern Stations
+    Pico:
+        x: 0
+        z: -1500
+        notes: "Rails are on an elevated platform - enter through towers"
+    
+    North Portal:
+        x: -5
+        z: -1790
+    
+    Montpellier:
+        x: -490
+        z: -1633
+
+    Montpellier Central:
+        x: -523
+        z: -1715
+    
+    Pico PV Embassy:
+        x: 12
+        z: -1420
+
+    North Transfer:
+        x: -62
+        z: -848
+
+    Cloud City:
+        x: -628
+        z: -1946
+
+    Backcountry Station:
+        x: -43
+        z: -2500
+    
+    "World's End Outpost":
+        x: -43
+        z: -2990   
+
+    # Northeastern Stations
+    Northeast Junction:
+        x: 1200
+        z: -1400
+        notes: "No pedestrian access - just switches between lines"
+
+    saffsd Junction:
+        x: 1226
+        z: -1784
+
+    Blanco:
+        x: 1765
+        z: -1781
+
+    Diehimmel:
+        x: 1600
+        z: -1487
+        
+    Pleasantville:
+        x: 1200
+        z: -1000
+    
+    Beacon Island:
+        x: 540
+        z: -720
+
+    Gobias:
+        x: 2500
+        z: -1000
+
+    Esper:
+        x: 1025
+        z: -1418
+
+    Esper PV Express:
+        x: 1047
+        z: -1342
+
+    Northeast 3000:
+        x: 2999
+        z: -2999
+        
+    # Eastern Stations
+    East Transfer:
+        x: 850
+        z: -120
+    
+    East Portal:
+        x: 1800
+        z: 0
+    
+    New Argoth:
+        x: 1520
+        z: 10
+    
+    "Nuttin' Atoll":
+        x: 1120
+        z: -260
+
+    New Athens:
+        x: 951
+        z: 533
+        
+    # Southeastern Stations
+    Wellspring:
+        x: 945
+        z: 675
+    
+    Kilst Island:
+        x: 1620
+        z: 705
+    
+    Not Bacon:
+        x: 1630
+        z: 875
+    
+    Birch Island:
+        x: 1630
+        z: 1340
+    
+    East Ocean:
+        x: 1630
+        z: 1500
+
+    "Monkeh/Whore Junction":
+        x: 2323
+        z: 312
+        notes: "No surface access"
+
+    Whore Island:
+        x: 2518
+        z: 51
+
+    Monkeh Island:
+        x: 2337
+        z: 567
+
+    "Island/Argoth Junction":
+        x: 1521
+        z: 312
+        notes: "No surface access"
+
+    Derp Town:
+        x: 905
+        z: 310
+        notes: "Station access via ladder down in sandstone building. Not connected to 850 loop."
+
+    Hall of Pillars:
+        x: 1559
+        z: 2230
+        notes: "Schererererer's Uberproject"
+        
+    # Southern Stations
+    South Transfer:
+        x: -43
+        z: 850
+    
+    South Portal:
+        x: -40
+        z: 1700
+
+    "Makdaam's Retreat":
+        x: 2
+        z: 2401
+
+    Southquan:
+        x: 2
+        z: 2810
+    
+    # In the future, jchance may add Birch Island.
+    
+    Nowhere:
+        # Also Nowhere's Y70 station.
+        x: -50
+        z: 1530
+    
+    Lothos:
+        x: -230
+        z: 1130
+
+    Unknown Station:
+        x: -411
+        z: 1632
+    
+    # Southwestern Stations
+    Deorne:
+        x: -850
+        z: 865
+        notes: "The line selector is after you leave the station"
+
+    850 South West Transfer:
+        x: -850
+        z: 850
+    
+    New Hempshire:
+        x: -1460
+        z: 1540
+    
+    Deepholm Junction:
+        x: -1630
+        z: 1100
+        notes: "No pedestrian access - just switches between lines"
+    
+    Deepholm:
+        # Deepholm Junction connects here - elevated rail
+        x: -1285
+        z: 1090
+    
+    QN Junction:
+        x: -1630
+        z: 717
+
+    Cathedral:
+        x: -299
+        z: 194
+
+    Lothos Desert:
+        x: -585
+        z: 1130
+
+    Southwest 3000:
+        x: -2999
+        z: 2999
+
+    # Western Stations
+    West Transfer:
+        x: -845
+        z: -115
+        notes: "No pedestrian access"
+    
+    Topaz West:
+        x: -1630
+        z: 40
+
+    West Portal:
+        x: -1709
+        z: 31
+    
+    # Northwestern Stations
+    Agua Fria:
+        x: -925
+        z: -760
+        notes: "The line selector is after you leave the station"
+
+    850 North West Transfer:
+        x: -850
+        z: -850
+    
+    Snowhedge:
+        x: -1630
+        z: -650
+    
+    Something Else:
+        x: -1280
+        z: -1640
+    
+    Andaren:
+        x: -1190
+        z: -1630
+
+    Metro Hub:
+        x: -1146
+        z: -1005
+
+    Metro West:
+        x: -1626
+        z: -1009
+
+    Dimma Vale:
+        x: -1019
+        z: -1106
+
+    Northwest 3000:
+        x: -2999
+        z: -2999
+
+lines:
+    # 10X - Cardinal Cross, y = 12
+    101:
+        name: "North Trunk"
+        direction: north
+        type: trunk
+        flow: twoway
+        level: underground
+        stops:
+        - Spawn Station
+        - North Transfer
+        - [Pico, south platform]
+    
+    102:
+        name: "East Trunk"
+        direction: east
+        type: trunk
+        flow: twoway
+        level: underground
+        stops:
+        - Spawn Station
+        - [-90, -115]
+        - East Transfer
+        - New Argoth
+    
+    103:
+        name: "South Trunk"
+        direction: south
+        type: trunk
+        flow: twoway
+        level: underground
+        stops:
+        - Spawn Station
+        - South Transfer
+        - Nowhere
+
+    104:
+        name: "West Trunk"
+        direction: west
+        type: trunk
+        flow: twoway
+        level: underground
+        stops:
+        - Spawn Station
+        - [-90, -115]
+        - West Transfer
+        - Topaz West
+    
+    # Other 1X0 lines
+    110:
+        name: "850 Loop"
+        direction: dextro
+        type: majorloop
+        flow: loop
+        level: underground
+        stops:
+        - North Transfer
+        - [850,-850]
+        - East Transfer
+        - Wellspring
+        - [850,850]
+        - South Transfer
+        - Deorne
+        - West Transfer
+        - 850 North West Transfer
+    
+    120:
+        name: "Y70 Outer Loop"
+        direction: dextro
+        type: majorloop
+        flow: loop
+        level: el
+        stops:
+        - [Pico, east platform]
+        - Esper
+        - Northeast Junction
+        - Pleasantville
+        - "Nuttin' Atoll"
+        - [1520, -260]
+        - New Argoth
+        - Kilst Island
+        - Not Bacon
+        - Birch Island
+        - East Ocean
+        - [1630, 1632]
+        # - Nowhere Y70
+        - Unknown Station
+        - [-1100, 1632]
+        - [-1100, 1540]
+        - New Hempshire
+        - [-1630, 1540]
+        - Deepholm Junction
+        - QN Junction
+        - Topaz West
+        - Snowhedge
+        - Metro West
+        - [-1626, -1640]
+        - Something Else
+        - Andaren
+        - Montpellier
+        - [-100, -1633]
+        - [-100, -1500]
+
+    130:
+        name: "3000 Loop"
+        direction: dextro
+        type: majorloop
+        flow: twoway
+        #Change flow to loop once it's a complete loop
+        level: underground
+        stops:
+        - Southwest 3000
+        - Northwest 3000
+        - "World's End Outpost"
+        - Northeast 3000
+        
+        
+    
+    # 200 lines - Central (Seneca)
+    207:
+        name: "Seneca/Pleasantville"
+        sign: "Seneca/PV"
+        direction: north
+        type: citylink
+        flow: twoway
+        level: underground
+        stops:
+        - Seneca
+        - [-15,-1000]
+        - Pleasantville
+    
+    210:
+        name: "Seneca/Snapperolle"
+        sign: "Seneca/Snap."
+        direction: east
+        type: citylink
+        flow: twoway
+        level: underground
+        stops:
+        - Snapperolle
+        - Seneca
+
+    220:
+        name: "Wellspring/Spawn"
+        direction: out
+        type: citylink
+        flow: twoway
+        level: underground
+        stops:
+        - SE Terminal
+        - Wellspring
+    
+    # 300 lines - North (Pico)
+    300:
+        name: "Pico/Portal"
+        direction: out
+        type: portallink
+        flow: twoway
+        level: el
+        stops:
+        - [Pico, north platform]
+        - North Portal
+
+    310:
+        name: "Beacon Island/Pico"
+        direction: north
+        type: citylink
+        flow: oneway
+        level: underground
+        stops:
+        - Beacon Island
+        - Pico PV Embassy
+
+    320:
+        name: "Metro/Dimma Vale"
+        direction: east
+        type: citylink
+        flow: twoway
+        level: underground
+        stops:
+        - Metro West
+        - Metro Hub
+        - Dimma Vale
+
+    321:
+        name: "Metro/Agua Fria"
+        direction: east
+        type: citylink
+        flow: twoway
+        level: underground
+        stops:
+        - Metro Hub
+        - Agua Fria
+
+    330:
+        name: "850 NW Aqua Fria Transfer"
+        direction: out
+        type: citylink
+        flow: oneway
+        level: underground
+        stops:
+        - 850 North West Transfer
+        - Agua Fria
+
+    350:
+        name: "850 SW Deorne Transfer"
+        direction: out
+        type: citylink
+        flow: oneway
+        level: underground
+        stops:
+        - 850 South West Transfer
+        - Deorne
+
+    360:
+        name: "Pico/World's End"
+        direction: north
+        type: citylink
+        flow: twoway
+        level: underground
+        stops:
+        - Pico
+        - [100, -2000]
+        # The above turn is fake, just to draw a better map.
+        - Backcountry Station
+        - "World's End Outpost"
+
+    370:
+        name: "Montpellier"
+        direction: east
+        type: citylink
+        flow: twoway
+        level: underground
+        stops:
+        - Montpellier
+        - Montpellier Central
+        - North Portal
+
+    380:
+        name: "Pico/Montpellier"
+        direction: west
+        type: citylink
+        flow: twoway
+        level: underground
+        stops:
+        - Pico
+        - Montpellier
+
+    390:
+        name: "Cloud City"
+        direction: east
+        type: portallink
+        flow: twoway
+        level: underground
+        stops:
+        - Cloud City
+        - North Portal
+        
+    # 400 lines - East (New Argoth)
+    400:
+        name: "New Argoth/Portal"
+        sign: "Argoth/Portal"
+        direction: out
+        flow: twoway
+        type: portallink
+        level: surface
+        stops:
+        - New Argoth
+        - [East Portal, west of portal]
+
+    410:
+        name: "Monkeh Island"
+        direction: out
+        flow: twoway
+        type: citylink
+        level: underground
+        stops:
+        - "Monkeh/Whore Junction"
+        - Monkeh Island
+
+    420:
+        name: "Whore Island"
+        direction: west
+        flow: twoway
+        type: citylink
+        level: underground
+        stops:
+        - Whore Island
+        - "Monkeh/Whore Junction"
+        - "Island/Argoth Junction"
+        - Derp Town
+
+    430:
+        name: "Argoth/Wellspring"
+        direction: west
+        flow: twoway
+        type: citylink
+        level: underground
+        stops:
+        - New Argoth
+        - New Athens
+        - Wellspring
+
+    450:
+        name: "Hall of Pillars"
+        direction: south
+        flow: twoway
+        type: citylink
+        level: underground
+        stops:
+        - New Argoth
+        - "Island/Argoth Junction"
+        - Hall of Pillars
+        
+    # 500 lines - South (Nowhere)
+    520:
+        name: "Lothos/Portal"
+        direction: south
+        type: portallink
+        flow: twoway
+        level: underground
+        stops:
+        - [Lothos, "east [green] bay"]
+        - Nowhere
+        - South Portal
+
+    530:
+        name: "Southquan Rail"
+        direction: south
+        type: citylink
+        flow: twoway
+        level: surface
+        stops:
+        - South Portal
+        - "Makdaam's Retreat"
+        - Southquan
+
+
+    540:
+        name: "Deepholm"
+        direction: in
+        type: branch
+        flow: twoway
+        level: el
+        stops:
+        - Deepholm Junction
+        - Deepholm
+
+    550:
+        name: "Lothos/Deorne"
+        direction: west
+        type: citylink
+        flow: twoway
+        level: underground
+        stops:
+        - Lothos
+        - Lothos Desert
+        - Deorne
+
+    560:
+        name: "Lothos/Cathdral"
+        direction: north
+        type: citylink
+        flow: twoway
+        level: underground
+        stops:
+        - Lothos
+        - Cathedral
+    
+    # 600 lines - West (Topaz)
+    
+    # 700 lines - Northeast (Pleasantville)
+    710:
+        name: "PV/Pico Embassy"
+        direction: out
+        type: citylink
+        flow: twoway
+        level: underground
+        stops:
+        - Pleasantville
+        - [-15,-1000]
+        - Pico PV Embassy
+
+    720:
+        name: "PV/Beacon Island"
+        direction: out
+        type: citylink
+        flow: twoway
+        level: underground
+        stops:
+        - Pleasantville
+        - Beacon Island
+
+    730:
+        name: "PV/Gobias"
+        direction: out
+        type: citylink
+        flow: twoway
+        level: underground
+        stops:
+        - Pleasantville
+        - Gobias
+
+    740:
+        name: "PV/Esper"
+        direction: out
+        type: citylink
+        flow: twoway
+        level: underground
+        stops:
+        - Pleasantville
+        - Esper PV Express
+
+    750:
+        name: "Blanco Rail"
+        direction: out
+        type: citylink
+        flow: twoway
+        level: elevated
+        stops:
+        - Northeast Junction
+        - saffsd Junction
+        - Blanco
+
+    760:
+        name: "Diehimmel Rail"
+        direction: east
+        type: citylink
+        flow: twoway
+        level: elevated
+        stops:
+        - Northeast Junction
+        - Diehimmel
