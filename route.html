@@ -1,0 +1,77 @@
+<html>
+<head>
+<title>MCPublic PvE Rail Directions</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="pve-6-rails-connection.js"></script>
+<script>
+$(document).ready(function () {
+	var stationtext = [];
+	for (station in stations) {
+		stationtext.push(station);
+	}
+	stationtext.sort();
+	for (station_index in stationtext) {
+		var station = stationtext[station_index];
+		$("#from").append('<option value="'+station+'">'+station+'</option>');
+		$("#to").append('<option value="'+station+'">'+station+'</option>');
+	}
+});
+
+var routes = [];
+
+function walkStations(station, route, to) {
+	for (dest_index in stations[station].destinations) {
+		var destination = stations[station].destinations[dest_index];
+		route.push(destination);
+		if (destination == to) {
+			routes.push($.merge([],route)); // copy array
+		} else {
+			if (route.length < 8) {
+				walkStations(destination, route, to);
+			}
+		}
+		route.pop();
+	}
+}
+
+function calculateDirections() {
+	from = $("#from").val();
+	to = $("#to").val();
+	if (from == to) {
+		$("#directions").html("Silly you, you're already there!");
+		return;
+	} else {
+		routes = [];
+		var route = [from];
+		walkStations(from, route, to);
+		if (routes.length == 0) {
+			$("#directions").html("Sorry, I'm too stupid to figure that out.");
+			return;
+		}
+		routes.sort(function(a,b){return a.length - b.length});
+		var directions = '<table id="#routes"><tr><th>Route</th><th>Stops</th></tr>';
+		for(route_index in routes) {
+			var route = routes[route_index];
+			directions += "<tr><td>";
+			for (stop_index in route) {
+				directions += route[stop_index]
+				if (stop_index < route.length - 1) {
+					directions += " -> ";
+				}
+			}
+			directions += "</td><td>"+route.length+"</td></tr>";
+		}
+		directions += '</table>';
+		$("#directions").html(directions);
+	}
+}
+</script>
+</head>
+<body>
+<label for="from">From:</label>
+<select id="from" onChange="calculateDirections()"></select>
+<label for="to">To:</label>
+<select id="to" onChange="calculateDirections()"></select>
+<div id="directions"></div>
+</body>
+</html>

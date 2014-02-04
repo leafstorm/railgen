@@ -26,6 +26,10 @@ require 'optparse'
 require 'haml'
 require 'yaml'
 
+def is_a_number?(s)
+  s.to_s.match(/\A[+-]?\d+?(\.\d+)?\Z/) == nil ? false : true
+end
+
 class RailNetwork
   def self.load (data)
     network = self.new(data["name"] || "Rail Network")
@@ -40,7 +44,11 @@ class RailNetwork
       line = network.add_line n, ln["name"], ln["direction"].to_sym, ln["flow"].to_sym, ln["level"].to_sym, ln["type"].to_sym, ln["notes"]
       ln["stops"].each do |stop|
         if stop.is_a?(Array)
-          line.add_stop(stop[0], stop[1])
+          if is_a_number?(stop[0]) and is_a_number?(stop[1]) 
+            line.add_stop(stop, nil)
+          else
+            line.add_stop(stop[0], stop[1])
+          end
         else
           line.add_stop(stop, nil)
         end
@@ -250,7 +258,11 @@ class Line
   end
   
   def add_stop (stop, landing)
-    stop = @network.get_station stop
+    if !stop.is_a?(Array)
+      stop = @network.get_station stop
+    else
+      stop = Station.new(@network, '', stop[0], stop[1], nil)
+    end
     @stops << [stop, landing]
     stop.add_line(self, landing)
   end
